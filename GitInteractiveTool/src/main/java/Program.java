@@ -42,17 +42,28 @@ public class Program {
 	    int limit = Integer.MAX_VALUE;
 	    //checks if option is present or not
 	    if(cmd.hasOption("n")) {
-	       n = Integer.parseInt(cmd.getOptionValue("n"));
+	    		try {
+	    			n = Integer.parseInt(cmd.getOptionValue("n"));
+	    			if (n <= 0)
+	    			{
+	    				System.out.println("n should be greater than 0. Tool exiting...");
+	    				System.exit(0);
+	    			}
+	    		}catch(NumberFormatException | NullPointerException nfe)
+	    		{
+	    			System.out.println("Invalid argument to option -n. Tool exiting...");
+	    			System.exit(0);
+	    		}
 	    }
 	    else {
-	    		System.out.println("-n is a required option.");
+	    		System.out.println("-n is a required option. Tool exiting...");
 	    		System.exit(0);
 	    }
 	    if(cmd.hasOption("m")) {
 	       mode = cmd.getOptionValue("m");
 	    }
 	    else {
-	    		System.out.println("-m is a required option.");
+	    		System.out.println("-m is a required option. Tool exiting...");
 	    		System.exit(0);
 	    }
 	    if(cmd.hasOption("s")) {
@@ -62,7 +73,13 @@ public class Program {
 		    token = cmd.getOptionValue("t");
 		}
 	    if(cmd.hasOption("l")) {
-		    limit = Integer.parseInt(cmd.getOptionValue("l"));
+		    	try {
+			    limit = Integer.parseInt(cmd.getOptionValue("l"));
+			}catch(NumberFormatException | NullPointerException nfe)
+			{
+				System.out.println("Invalid argument to option -n. Tool exiting...");
+				System.exit(0);
+			}
 		}
 	    ProgramGlobalParam globalParams = ProgramGlobalParam.getInstance(); 
 	    globalParams.setSleepForRate(sleepForRate);
@@ -109,6 +126,7 @@ public class Program {
 				default:
 					System.out.println("Error : Specified mode not supported");
 			        System.out.println("Supported operations topNStars, topNForks, topNPullRequest, topNContribution");	
+			        System.exit(0);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

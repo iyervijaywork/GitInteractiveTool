@@ -26,7 +26,7 @@ public class ProgramTest {
     public void processRequestTest(int n, String mode) {
         ProgramGlobalParam globalParams = ProgramGlobalParam.getInstance(); 
         globalParams.setMaxRepoParseCount(5);  
-        globalParams.setToken("ec6e3240c8c62a56947d4514f0c5f0edba5f8c5a");
+        globalParams.setToken("3becb36126b3b09a5ab106eec426f9ab22b26052");
         
     		List<RepoMetric> result = Program.processRequest(n, mode);
     		Assert.assertTrue(result.size() == n);

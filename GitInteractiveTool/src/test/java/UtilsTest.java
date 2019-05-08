@@ -15,7 +15,7 @@ public class UtilsTest {
         System.out.println("Program Tests Start!");
         ProgramGlobalParam globalParams = ProgramGlobalParam.getInstance(); 
         globalParams.setMaxRepoParseCount(5);  
-        globalParams.setToken("ec6e3240c8c62a56947d4514f0c5f0edba5f8c5a");
+        globalParams.setToken("3becb36126b3b09a5ab106eec426f9ab22b26052");
     }
 	
 	@DataProvider
@@ -29,7 +29,7 @@ public class UtilsTest {
         };
     }
 
-    @Test(description = "Test the API execution engine with different url strings", dataProvider = "topNForksTestData", enabled = true)
+    @Test(description = "Test the API execution engine with TopNForks url strings", dataProvider = "topNForksTestData", enabled = true)
 	public void topNForksTest(String url, int count) {
 		try {  
     			JsonObject json = (JsonObject)Utils.executeGitHubV3Api(url, false);

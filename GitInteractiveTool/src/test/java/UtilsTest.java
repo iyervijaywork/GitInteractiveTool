@@ -15,7 +15,7 @@ public class UtilsTest {
         System.out.println("Program Tests Start!");
         ProgramGlobalParam globalParams = ProgramGlobalParam.getInstance(); 
         globalParams.setMaxRepoParseCount(5);  
-        globalParams.setToken("aa8fafd88269ba5ed592b6352b4a667a603bc527");
+        globalParams.setToken("ec6e3240c8c62a56947d4514f0c5f0edba5f8c5a");
     }
 	
 	@DataProvider

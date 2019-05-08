@@ -1,6 +1,7 @@
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+//Class to capture and compute topN contribution metric
 public class TopNContributionMetric extends TopNRepoMetric {
 	ProgramGlobalParam s = ProgramGlobalParam.getInstance(); 
 	public TopNContributionMetric(int n) throws Exception

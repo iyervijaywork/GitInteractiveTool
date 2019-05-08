@@ -59,6 +59,10 @@ public class Program {
 	    }
 	    if(cmd.hasOption("m")) {
 	       mode = cmd.getOptionValue("m");
+	       if (mode == null || mode.isEmpty()){
+		    		System.out.println("Invalid mode. Tool exiting...");
+		    		System.exit(0);
+	       }
 	    }
 	    else {
 	    		System.out.println("-m is a required option. Tool exiting...");

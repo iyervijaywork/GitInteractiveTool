@@ -9,6 +9,7 @@ public class TopNContributionMetric extends TopNRepoMetric {
 		this.manageTopNPullRequestMetric("contributions");
 	}
 
+	//override the default base class implementation of processMetricCount
 	public double processMetricCount(JsonObject jsonObject, String metricField, String fullName) throws Exception
 	{
 		if (s.getRate() == 0) return -1;
@@ -25,6 +26,7 @@ public class TopNContributionMetric extends TopNRepoMetric {
 			pageCount++;
 		}
 		
+		// Get the total fork count for the given repo by it's fullname 
 		JsonObject repoForks = 
 				(JsonObject) Utils.executeGitHubV3Api(Constants.GitHubV3Mapping.get("searchRepoByFullName").replaceAll("%FullName%", fullName), false);
 		
@@ -35,6 +37,6 @@ public class TopNContributionMetric extends TopNRepoMetric {
 		double forkCount = forks.get(0).getAsJsonObject().get("forks_count").getAsLong();
 		
 		if (pullCount == 0 || forkCount == 0 ) return 0;
-		return ((double)pullCount/forkCount);
+		return ((double)pullCount/forkCount); 
 	}
 }

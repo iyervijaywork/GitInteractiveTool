@@ -22,8 +22,6 @@ public class Program {
 	         .addOption("s", "sleep-for-rate", false, "(Optional option)  Just sit silently till new API requests are available.")
 	         .addOption("l", true, "(Optional option)  Set limit of how many repo to search to build the result. If this is not set then all the repos of github will be scanned.");
 
-
-
 	  //Create a parser
 	    CommandLineParser parser = new GnuParser();
 
@@ -90,6 +88,8 @@ public class Program {
         printResult(result, mode);
 		
 	}
+	
+	//print the topN results to the stdout
 	private static void printResult(List<RepoMetric> result, String mode) {
 		if (result == null || result.size() == 0)
 			System.out.println("Failure : Unable to object the result set.");
@@ -102,6 +102,8 @@ public class Program {
 			System.out.println("\t" + mode.replace("topN", "") + " Count: " + result.get(i).getMetricCount());
 		}
 	}
+	
+	//process the topN request for the given mode
 	public static List<RepoMetric> processRequest(int n, String mode){
 		List<RepoMetric> result = null;
 		try {
@@ -129,6 +131,7 @@ public class Program {
 			        System.exit(0);
 			}
 		}catch(Exception e) {
+			System.out.println("Encountered an exception when running the tool. Please look at the stacktrace and rerun. Please file a bug if needed.");
 			e.printStackTrace();
 		}
 	    return result;

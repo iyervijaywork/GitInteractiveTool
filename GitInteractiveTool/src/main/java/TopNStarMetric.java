@@ -1,5 +1,6 @@
 import com.google.gson.JsonObject;
 
+//Class to capture and compute topN star metric
 public class TopNStarMetric extends TopNRepoMetric {
 
 	public TopNStarMetric(int n) throws Exception
@@ -9,7 +10,6 @@ public class TopNStarMetric extends TopNRepoMetric {
 	}
 	public void BuildTopNStarMetric() throws Exception
 	{
-		// TODO: Optimize with paginated calls for n > 500
 		JsonObject json = 
 			(JsonObject) Utils.executeGitHubV3Api(
 			Constants.GitHubV3Mapping.get(

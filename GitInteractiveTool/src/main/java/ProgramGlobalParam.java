@@ -11,8 +11,7 @@ class ProgramGlobalParam
         rate = 0;
         setToken(null);
         setSleepForRate(false);
-        maxRepoParseCount = Integer.MAX_VALUE;
-        
+        maxRepoParseCount = Integer.MAX_VALUE; 
     } 
 
     public static ProgramGlobalParam getInstance() 
@@ -22,8 +21,7 @@ class ProgramGlobalParam
   
         return single_instance; 
     } 
-    public void DecrementRate()
-    {
+    public void DecrementRate(){
     		rate--;
     		//System.out.println(count);
     }

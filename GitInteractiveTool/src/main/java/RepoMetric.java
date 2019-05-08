@@ -1,4 +1,4 @@
-
+//ObjectModel to capture github metrics
 public class RepoMetric {
 	private RepoObjectModel repoObject;
 	private double metricCount;

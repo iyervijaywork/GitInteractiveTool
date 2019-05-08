@@ -1,6 +1,7 @@
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+//Class to capture and compute topN pullrequest metric
 public class TopNPullRequestMetric extends TopNRepoMetric {
 
 	ProgramGlobalParam s = ProgramGlobalParam.getInstance(); 

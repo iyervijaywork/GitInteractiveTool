@@ -1,5 +1,6 @@
 import com.google.gson.JsonObject;
 
+//Class to capture and compute topN fork metric
 public class TopNForkMetric extends TopNRepoMetric {
 
 	public TopNForkMetric(int n) throws Exception

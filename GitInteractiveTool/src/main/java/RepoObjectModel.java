@@ -1,4 +1,4 @@
-
+//Object model to capture github repository data
 public class RepoObjectModel {
 	private long id;
 	private String fullName;

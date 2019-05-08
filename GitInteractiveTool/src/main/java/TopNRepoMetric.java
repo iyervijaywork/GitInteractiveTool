@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+//Base class to capture and compute topN github repository metric
 public class TopNRepoMetric {
 	private List<RepoMetric> topNRepo;
 	private int n;

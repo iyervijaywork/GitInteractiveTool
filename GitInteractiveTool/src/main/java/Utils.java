@@ -20,8 +20,7 @@ public class Utils {
 		{
 			int count = Constants.maxAttemptsForSleepForRate;
 			s.setRate(ParseRate((JsonObject)executeGitHubV3Api(Constants.GitHubV3Mapping.get("rateLimit"), true)));
-			while(count > 0 && s.getRate() == 0)
-			{
+			while(count > 0 && s.getRate() == 0){
 				count--;
 				if (s.getSleepForRate())
 				{
@@ -30,13 +29,11 @@ public class Utils {
 				}
 				s.setRate(ParseRate((JsonObject)executeGitHubV3Api(Constants.GitHubV3Mapping.get("rateLimit"), true)));
 			}
-			if (s.getRate() == 0) 
-			{
+			if (s.getRate() == 0) {
 				System.out.println("Retry limit exhausted. Tool exiting...");
 				return null;
 			}
-			else
-			{
+			else{
 				System.out.println("Rate limit is : " + s.getRate());
 				System.out.println("Continuing from where we left off...");
 			}
@@ -49,8 +46,7 @@ public class Utils {
 		httpcon.addRequestProperty("User-Agent", "Mozilla/5.0");
 		
 		//Check if user passed authorization token. This will increase rate limit per hour to 5000 requests
-		if (s.getToken() != null)
-		{
+		if (s.getToken() != null){
 			httpcon.addRequestProperty("Authorization", "token " + s.getToken());
 		}
 		
